@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crowdfunding App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/search.js' %}" defer></script> 
+</head>
+
+<body>
+    <!-- ================= Navbar ================= -->
+    <header class="nav-container">
+        <div class="logo">
+            <a href="{% url 'project_list' %}">💰 FundHub</a>
+        </div>
+        <div class="nav-bar">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="nav-btn profile">Profile</a>
+                <a href="{% url 'logout' %}" class="nav-btn logout">Logout</a>
+                
+                <form id="logout-form" action="{% url 'logout' %}" method="post" style="display:none;">
+                    {% csrf_token %}
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="nav-btn login">Login</a>
+                <a href="{% url 'register' %}" class="nav-btn register">Register</a>
+            {% endif %}
+        </div>
+    </header>
+    <!-- ================= Main Content ================= -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        &copy; 2025 FundHub. All rights reserved.
+    </footer>
+</body>
+</html>

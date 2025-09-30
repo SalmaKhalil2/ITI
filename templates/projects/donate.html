@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="donate-container">
+    <h2>{{ project.title }}</h2>
+
+    <p><strong>Goal:</strong> ${{ project.target_amount }}</p>
+    <p><strong>Current:</strong> ${{ project.current_amount|default:"0.00" }}</p>
+    <p><strong>Remaining:</strong> ${{ project.remaining_amount }}</p>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="amount">Enter donation amount:</label>
+        <input type="number" step="0.01" name="amount" id="amount" required>
+        <button type="submit" class="btn btn-donate">Confirm</button>
+    </form>
+    <div style="text-align:center; margin: 25px 0;">
+    <a href="{% url 'landing' %}" class="btn" style="background-color: #555;">Back to Home</a>
+</div>
+</div>
+{% endblock %}

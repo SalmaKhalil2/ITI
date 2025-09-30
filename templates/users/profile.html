@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ user.first_name }}!</h2>
+
+<a href="{% url 'create_project' %}" class="btn">Add New Project</a>
+<a href="{% url 'project_list' %}" class="btn">View Your Projects</a>
+
+<br>
+<br>
+<br>
+<div style="text-align:center; margin: 25px 0;">
+    <a href="{% url 'landing' %}" class="btn" style="background-color: #555;">Back to Home</a>
+</div>
+{% endblock %}

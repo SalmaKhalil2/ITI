@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Edit Project</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value="{{ project.title }}" required>
+        </div>
+
+        <div class="form-row">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="4" required>{{ project.description }}</textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="target_amount">Target Amount</label>
+            <input type="number" name="target_amount" id="target_amount" value="{{ project.target_amount }}" required>
+        </div>
+
+        <div class="form-row">
+            <label for="end_date">End Date</label>
+            <input type="date" name="end_date" id="end_date" value="{{ project.end_date|date:'Y-m-d' }}" required>
+        </div>
+
+        <div class="form-row">
+            <label for="image">Image</label>
+            {% if project.image %}
+                <p>Current: <img src="{{ project.image.url }}" alt="Current Image" style="max-width:100px; border-radius:5px;"></p>
+            {% endif %}
+            <input type="file" name="image" id="image">
+        </div>
+
+        <button type="submit" class="btn" style="background-color: #388e3c;">Save Changes</button>
+    </form>
+    <div style="text-align:center; margin: 25px 0;">
+    <a href="{% url 'project_list' %}" class="btn" style="background-color: #555;">Back to List</a>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 style="text-align:center; color:white; margin-top:20px;">All Projects</h2>
+
+<div class="projects-container">
+    {% for project in projects %}
+        <div class="project-card">
+            <h3>{{ project.title }}</h3>
+
+            {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width:100%; border-radius: 8px; margin-bottom:10px;">
+            {% endif %}
+
+            <p>{{ project.description }}</p>
+            <p><strong>Goal:</strong> ${{ project.target_amount }}</p>
+            <p><strong>Current:</strong> ${{ project.current_amount|default:"0.00" }}</p>
+            <p><strong>Remaining:</strong> ${{ project.remaining_amount|default:project.target_amount }}</p>
+            <p><strong>Created:</strong> {{ project.created_at|date:"d M Y" }}</p>
+
+            <div style="margin-top: 12px;">
+                <a href="{% url 'edit_project' project.pk %}" class="btn" style="background-color: #fbc02d;">Edit</a>
+                <a href="{% url 'delete_project' project.pk %}" class="btn" style="background-color: #d32f2f;">Delete</a>
+                <a href="{% url 'project_detail' project.pk %}" class="btn" style="background-color: #388e3c;">View</a>
+            </div>
+        </div>
+    {% empty %}
+        <p style="color:white; text-align:center;">No projects found.</p>
+    {% endfor %}
+</div>
+
+<div style="text-align:center; margin: 25px 0;">
+    <a href="{% url 'profile' %}" class="btn" style="background-color: #555;">Back to Profile</a>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="project-detail">
+    {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+    {% endif %}
+    <h2>{{ project.title }}</h2>
+    <p>{{ project.description }}</p>
+    <p><strong>Goal:</strong> ${{ project.target_amount }}</p>
+    <p><strong>Current:</strong> ${{ project.current_amount|default:"0.00" }}</p>
+    <p><strong>Remaining:</strong> ${{ project.remaining_amount|default:project.target_amount }}</p>
+    <p><strong>End Date:</strong> {{ project.end_date }}</p>
+
+    <div class="donors">
+        <h3>Donors</h3>
+        <ul>
+            {% for donation in project.donations.all %}
+              <li>${{ donation.amount }} - {{ donation.donated_at|date:"M d, Y H:i" }}</li>
+            {% empty %}
+              <li>No donations yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div style="text-align:center; margin: 25px 0;">
+    <a href="{% url 'project_list' %}" class="btn" style="background-color: #555;">Back to List</a>
+</div>
+</div>
+{% endblock %}

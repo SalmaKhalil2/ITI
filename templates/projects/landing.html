@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="landing-container">
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search projects..." />
+    </div>
+
+    <div class="projects-container" id="projectsContainer">
+        {% for project in projects %}
+        <div class="project-card">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p>{{ project.description|truncatechars:100 }}</p>
+            <p>Goal: ${{ project.target_amount }}</p>
+            <p>Current: ${{ project.current_amount|default:"0.00" }}</p>
+            <p>Remaining: ${{ project.remaining_amount|default:project.target_amount }}</p>
+            
+            {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+            {% endif %}
+            
+            <a href="{% url 'donate' project.pk %}" class="btn btn-donate">Donate</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

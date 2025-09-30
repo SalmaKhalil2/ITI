@@ -1,0 +1,318 @@
+/* ================= Body ================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url("../images/donation.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ================= Navbar ================= */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2e7d32;
+    text-decoration: none;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 12px;
+}
+
+/* ================= Footer ================= */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(255,255,255,0.3);
+    color: #333;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* ================= Search Box ================= */
+.search-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    padding: 12px 18px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 15px;
+}
+
+#searchInput:focus {
+    border-color: #43a047;
+    box-shadow: 0 0 10px rgba(67,160,71,0.25);
+}
+
+/* ================= Navigation ================= */
+.nav-bar {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-end; 
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.nav-btn {
+    padding: 12px 26px;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-size: 15px;
+    text-align: center;
+}
+
+.nav-btn.login { background-color: #388e3c; }
+.nav-btn.register { background-color: #43a047; }
+.nav-btn.profile { background-color: #43a047; }
+.nav-btn.logout { background-color: #d32f2f; }
+
+.nav-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* ====== NavBar Forms ====== */
+.nav-bar form.logout-form {
+    display: inline;  
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar form.logout-form button {
+    cursor: pointer;
+}
+
+/* ================= Main Container ================= */
+.container {
+    width: 100%;
+    max-width: 1200px; 
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    background: none;     
+    box-shadow: none;     
+}
+
+/* ================= Titles ================= */
+h1, h2, h3 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= Forms ================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+    backdrop-filter: blur(8px); 
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+form label {
+    width: 130px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333; 
+}
+
+form input,
+form textarea {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.25s ease;
+    background: rgba(255, 255, 255, 0.9); 
+    box-sizing: border-box;
+}
+
+form textarea {
+    min-height: 110px;
+    max-height: 220px;
+    resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #43a047;
+    box-shadow: 0 0 10px rgba(67, 160, 71, 0.25);
+    background: #fff;
+}
+
+/* ================= Buttons ================= */
+form button, 
+.btn {
+    background: linear-gradient(135deg, #43a047, #388e3c);
+    color: #fff;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+    min-width: 120px;
+    text-align: center;
+}
+
+form button:hover, 
+.btn:hover {
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* ================= Projects Container ================= */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* ================= Project Card ================= */
+.project-card {
+    border: none; 
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 50px);
+    max-width: 350px;
+    min-width: 280px;
+    background: rgba(255,255,255,0.8); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    color: #27ae60;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    margin: 6px 0;
+    color: #333;
+}
+
+.project-card .btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+    background: #43a047;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.project-card .btn:hover {
+    background: #2e7d32;
+    transform: translateY(-2px);
+}
+
+/* ================= Project Detail ================= */
+.project-detail {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+    text-align: center;
+}
+
+.project-detail img {
+    width: 100%;
+    height: 300px;  
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.project-detail h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.project-detail p {
+    margin: 10px 0;
+    color: #444;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+}
+.card {
+    border: 2px solid #27ae60;
+    border-radius: 16px;
+    padding: 25px;
+    max-width: 500px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
